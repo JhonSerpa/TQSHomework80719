@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>TQS Homework</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </h:head>
+    <h:body>
+        
+        <h1 style="text-align: left;">Conversor de Moedas Online</h1>
+        <h2 style="text-align: left">Converte todas as moedas</h2>
+        
+        <h:form role="form" style="text-align: left;">
+            <div class="form-group">
+                <label>Insira um valor para conversão:  </label>
+                <h:inputText class="form-control" value="#{conversionBean.amount}" style="text-align: left;"/> 
+                <br /><br/>
+                
+                
+                <label>Moeda Utilizada:  </label>
+                <h:selectOneMenu value="#{conversionBean.baseCurrency}">
+                    <f:selectItems value="#{conversionBean.currenciList}" />
+                </h:selectOneMenu>
+                <br /><br/>
+                
+                
+                <label>Moeda Destino:  </label>
+                <h:selectOneMenu value="#{conversionBean.destinCurrency}">
+                    <f:selectItems value="#{conversionBean.currenciList}" />
+                </h:selectOneMenu>
+
+                <br /><br/>
+                <h:commandButton value="Converter" action="#{conversionBean.calculate()}"/>       
+                <br /><br/>
+                <label>#{conversionBean.amount} #{conversionBean.baseCurrency}  equivale a  #{conversionBean.resString()} #{conversionBean.destinCurrency}.</label>
+                <br/>	
+                </div>
+        </h:form>
+            
+    </h:body>
+</html>
